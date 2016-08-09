@@ -16,6 +16,7 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'sjl/vitality.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Support
 Plug 'tpope/vim-dispatch'
@@ -54,6 +55,9 @@ Plug 'vim-erlang/vim-erlang-compiler'
 Plug 'vim-erlang/vim-erlang-omnicomplete'
 Plug 'vim-erlang/vim-erlang-tags'
 Plug 'osyo-manga/vim-monster'
+Plug 'zchee/deoplete-jedi'
+Plug 'uarun/vim-protobuf'
+Plug 'CyCoreSystems/vim-cisco-ios'
 
 " JS Beautify
 Plug 'michalliu/jsruntime.vim'
@@ -66,7 +70,7 @@ if has('nvim')
 	Plug 'carlitux/deoplete-ternjs'
 	Plug 'zchee/deoplete-go'
 	Plug 'awetzel/elixir.nvim'
-	Plug 'Rip-Rip/clang_complete'
+	Plug 'zchee/deoplete-clang'
 else
 	Plug 'Valloric/YouCompleteMe'
 	Plug 'scrooloose/syntastic'
@@ -171,6 +175,9 @@ set splitbelow
 
 " Remove 'press any key to continue'
 set cmdheight=1
+
+" Disable fucked-up SQL completion
+let g:omni_sql_no_default_maps = 1
 " }}}
 " ##### General mappings  {{{
 " ##### Tabs {{{
@@ -187,13 +194,6 @@ noremap L $
 " Emacs bindings in command-line mode
 cnoremap <C-A> <home>
 cnoremap <C-E> <end>
-" }}}
-" ##### Split windows {{{
-" Move around easily
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 " }}}
 " ##### Folding {{{
 " Toggles folding with space
@@ -253,6 +253,9 @@ vnoremap <leader>v "*p
 vnoremap <leader>V "*P
 nnoremap <leader>v "*p
 nnoremap <leader>V "*P
+
+" Fix tmux navigation
+nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 " }}}
 " }}}
 " ##### Plugin settings  {{{
@@ -386,6 +389,7 @@ augroup neomake_save_linter
 	autocmd BufWritePost *.erl Neomake
 	autocmd BufWritePost *.ex Neomake
 	autocmd BufWritePost *.exs Neomake
+	autocmd BufWritePost *.go Neomake
 augroup end
 
 let g:neomake_javascript_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
@@ -445,6 +449,10 @@ autocmd BufRead,BufNewFile *.ls set filetype=ls
 autocmd FileType ls set shiftwidth=2
 autocmd FileType ls set tabstop=2
 " }}}
+" ##### YAML {{{
+autocmd FileType yaml set shiftwidth=2
+autocmd FileType yaml set tabstop=2
+" }}}
 " ##### LookML {{{
 " Sets YAML syntax for *.lookml files.
 autocmd BufRead,BufNewFile *.lookml set filetype=yaml
@@ -459,5 +467,8 @@ autocmd BufRead,BufNewFile *.ex set filetype=elixir
 autocmd BufRead,BufNewFile *.exs set filetype=elixir
 autocmd FileType elixir set shiftwidth=2
 autocmd FileType elixir set tabstop=2
+" }}}
+" ##### Go {{{
+autocmd FileType go set foldmethod=syntax
 " }}}
 " }}}
