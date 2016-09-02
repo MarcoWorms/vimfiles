@@ -17,6 +17,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'sjl/vitality.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'metakirby5/codi.vim'
+Plug 'AndrewRadev/splitjoin.vim'
 
 " Support
 Plug 'tpope/vim-dispatch'
