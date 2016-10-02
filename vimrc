@@ -29,6 +29,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'metakirby5/codi.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'machakann/vim-highlightedyank'
 
 " Support
 Plug 'tpope/vim-dispatch'
