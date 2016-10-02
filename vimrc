@@ -59,13 +59,14 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'hashivim/vim-terraform'
 Plug 'OrangeT/vim-csharp'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'nelstrom/vim-markdown-folding'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'osyo-manga/vim-monster'
 Plug 'zchee/deoplete-jedi'
 Plug 'uarun/vim-protobuf'
 Plug 'CyCoreSystems/vim-cisco-ios'
+Plug 'tpope/vim-markdown'
+Plug 'jtratner/vim-flavored-markdown'
 
 " JS Beautify
 Plug 'michalliu/jsruntime.vim'
@@ -443,7 +444,7 @@ autocmd FileType puppet set tabstop=2
 " }}}
 " ##### Markdown  {{{
 " Sets markdown syntax for *.md files.
-autocmd BufRead,BufNewFile *.md set filetype=markdown
+autocmd BufRead,BufNewFile *.md,*.markdown set filetype=ghmarkdown
 
 " Wrap markdown files.
 autocmd BufRead,BufNewFile *.md set wrap
