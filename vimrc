@@ -30,6 +30,7 @@ Plug 'metakirby5/codi.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-abolish'
 
 " Support
 Plug 'tpope/vim-dispatch'
