@@ -33,6 +33,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-abolish'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-eunuch'
+Plug 'edkolev/tmuxline.vim'
 
 " Support
 Plug 'tpope/vim-dispatch'
@@ -436,6 +437,16 @@ augroup end
 
 let g:neomake_javascript_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
 let g:neomake_puppet_enabled_makers = ['puppet', 'puppetlint']
+" }}}
+" ##### vim-tmuxline.vim {{{
+let g:airline#extensions#tmuxline#enabled = 0
+let g:tmuxline_preset = {
+    \'a'       : ['#(whoami)', '#S'],
+    \'win'     : ['#I', '#W'],
+    \'cwin'    : ['#I', '#W'],
+    \'x'       : ['#{prefix_highlight}'],
+    \'z'       : ['On: #{online_status}', '#{battery_icon} #{battery_percentage}', '%R'],
+    \'options' : {'status-justify' : 'left'}}
 " }}}
 " }}}
 " ##### Filetype-specific  {{{
