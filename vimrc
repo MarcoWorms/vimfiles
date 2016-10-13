@@ -53,6 +53,7 @@ Plug 'tomasr/molokai'
 " Languages
 Plug 'b4winckler/vim-objc'
 Plug 'rodjek/vim-puppet'
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'fatih/vim-go'
 Plug 'dag/vim-fish'
 Plug 'pangloss/vim-javascript'
@@ -79,7 +80,7 @@ if has('nvim')
 	Plug 'neomake/neomake'
 	Plug 'Shougo/deoplete.nvim'
 	Plug 'carlitux/deoplete-ternjs'
-	Plug 'zchee/deoplete-go'
+	Plug 'zchee/deoplete-go', { 'do': 'make' }
 	Plug 'awetzel/elixir.nvim'
 	Plug 'zchee/deoplete-clang'
 else
@@ -93,6 +94,7 @@ Plug 'OmniSharp/omnisharp-vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'majutsushi/tagbar'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -194,6 +196,9 @@ set cmdheight=1
 
 " Disable fucked-up SQL completion
 let g:omni_sql_no_default_maps = 1
+
+" Completion
+set completeopt=menu,noselect
 " }}}
 " ##### General mappings  {{{
 " ##### Tabs {{{
@@ -201,6 +206,10 @@ nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>e :tabedit
 nnoremap <leader>n :tabnext<cr>
 nnoremap <leader>p :tabprevious<cr>
+" }}}
+" ##### IDE Like {{{
+nmap <leader>1 :TagbarToggle<CR>
+nmap <leader>2 :NERDTreeToggle<CR>
 " }}}
 " ##### Line movement {{{
 " Go to start of line with H and to the end with $
@@ -301,6 +310,7 @@ noremap <leader>ft :NERDTreeToggle<CR>
 
 " Don't fuck up vim's default file browser
 let g:NERDTreeHijackNetrw = 0
+let NERDTreeMapActivateNode='<space>'
 " }}}
 " ##### Airline  {{{
 let g:airline_powerline_fonts = 1
@@ -396,8 +406,12 @@ nnoremap <leader>th :OmniSharpHighlightTypes<cr>
 let g:syntastic_enable_highlighting = 0
 let g:syntastic_enable_balloons = 0
 " }}}
-" ##### Deoplete {{{
+" ##### deoplete {{{
 let g:deoplete#enable_at_startup = 1
+" }}}
+" ##### deoplete-go {{{
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#use_cache = 1
 " }}}
 " ##### monster (ruby) {{{
 let g:monster#completion#rcodetools#backend = "async_rct_complete"
