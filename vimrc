@@ -2,7 +2,15 @@
 " Author: Jonathan Lima <greenboxal@gmail.com>
 " Source: http://github.com/greenboxal/vimfiles
 
-" ##### Plug setup  {{{
+ " ##### Fix vim with fish  {{{
+
+if &shell =~# 'fish$'
+    set shell=sh
+endif
+
+" "}}}
+
+ " ##### Plug setup  {{{
 call plug#begin('~/.vim/plugged')
 " "}}}
 " ##### Plugs  {{{
@@ -11,6 +19,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'teranex/jk-jumps.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'milkypostman/vim-togglelist'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -19,6 +28,7 @@ Plug 'sjl/vitality.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'metakirby5/codi.vim'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'ntpeters/vim-better-whitespace'
 
 " Support
 Plug 'tpope/vim-dispatch'
@@ -41,7 +51,9 @@ Plug 'tomasr/molokai'
 " Languages
 Plug 'b4winckler/vim-objc'
 Plug 'rodjek/vim-puppet'
-Plug 'jnwhiteh/vim-golang'
+Plug 'fatih/vim-go'
+Plug 'dag/vim-fish'
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'pangloss/vim-javascript'
 Plug 'gkz/vim-ls'
 Plug 'kchmck/vim-coffee-script'
@@ -51,11 +63,6 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'digitaltoad/vim-pug'
-Plug 'elixir-lang/vim-elixir'
-Plug 'vim-erlang/vim-erlang-runtime'
-Plug 'vim-erlang/vim-erlang-compiler'
-Plug 'vim-erlang/vim-erlang-omnicomplete'
-Plug 'vim-erlang/vim-erlang-tags'
 Plug 'osyo-manga/vim-monster'
 Plug 'zchee/deoplete-jedi'
 Plug 'uarun/vim-protobuf'
@@ -141,9 +148,11 @@ set nowritebackup
 set directory=$HOME/.vim/tmp//,.
 
 " Global tab width.
-set tabstop=4
+set tabstop=2
 " And again, related.
-set shiftwidth=4
+set shiftwidth=2
+" And also expand tabs.
+set expandtab
 
 " Files open expanded
 set foldlevelstart=50
@@ -163,6 +172,9 @@ set autoread
 
 " Enable syntax highlighting
 syntax on
+
+" Use a better separator for splits
+set fillchars+=vert:│
 
 " Sets the colorscheme for terminal sessions too.
 colorscheme dracula
@@ -250,6 +262,7 @@ nnoremap <leader>xx :!chmod +x %<cr>
 nnoremap <leader>q :pclose<cr>:cclose<cr>
 
 " OS Clipboard
+set clipboard=unnamedplus
 vnoremap <leader>c "*y
 vnoremap <leader>v "*p
 vnoremap <leader>V "*P
@@ -258,6 +271,12 @@ nnoremap <leader>V "*P
 
 " Fix tmux navigation
 nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
+
+" Navigate splits
+nnoremap <c-left> <c-w>h
+nnoremap <c-right> <c-w>l
+nnoremap <c-up> <c-w>k
+nnoremap <c-down> <c-w>j
 " }}}
 " }}}
 " ##### Plugin settings  {{{
@@ -472,5 +491,13 @@ autocmd FileType elixir set tabstop=2
 " }}}
 " ##### Go {{{
 autocmd FileType go set foldmethod=syntax
+" }}}
+" ##### Rocker {{{
+autocmd BufRead,BufNewFile Rockerfile* set filetype=dockerfile
+" }}}
+" ##### Fish {{{
+autocmd FileType fish compiler fish
+autocmd FileType fish setlocal textwidth=79
+autocmd FileType fish setlocal foldmethod=expr
 " }}}
 " }}}
