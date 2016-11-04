@@ -278,6 +278,12 @@ nnoremap <leader>xx :!chmod +x %<cr>
 " Close Quickfix and Preview
 nnoremap <leader>q :pclose<cr>:cclose<cr>
 
+" Resize Panels with Shift
+nnoremap <S-Down> <c-w>+
+nnoremap <S-Up> <c-w>-
+nnoremap <S-Left> <c-w><
+nnoremap <S-Right> <c-w>>
+
 " OS Clipboard
 set clipboard=unnamedplus
 vnoremap <leader>c "*y
