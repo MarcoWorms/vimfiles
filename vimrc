@@ -357,6 +357,9 @@ nmap <C-N> <Plug>yankstack_substitute_newer_paste
 " ##### Number toggle  {{{
 let g:NumberToggleTrigger="<leader>ll"
 "}}}
+" ##### Javascript JSX {{{
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+"}}}
 " ##### togglelist {{{
 let g:toggle_list_copen_command="Copen"
 " }}}
@@ -441,6 +444,10 @@ autocmd BufRead,BufNewFile *.md,*.markdown set filetype=ghmarkdown
 autocmd BufRead,BufNewFile *.md set wrap
 " }}}
 " ##### JavaScript  {{{
+
+autocmd BufRead,BufNewFile *.js set shiftwidth=2
+autocmd BufRead,BufNewFile *.js set expandtab
+
 " Sets javascript syntax for *.json files.
 autocmd BufRead,BufNewFile *.json set filetype=javascript
 
