@@ -60,6 +60,8 @@ Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/sy
 Plug 'fatih/vim-go'
 Plug 'dag/vim-fish'
 Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs'
+Plug 'mxw/vim-jsx'
 Plug 'gkz/vim-ls'
 Plug 'kchmck/vim-coffee-script'
 Plug 'hashivim/vim-terraform'
@@ -493,6 +495,9 @@ autocmd BufRead,BufNewFile *.json set filetype=javascript
 
 " Sets html syntax for *.ejs files.
 autocmd BufRead,BufNewFile *.ejs set filetype=html
+
+" Sets JSX syntax for all .js files
+let g:jsx_ext_required = 0
 " }}}
 " ##### Vim {{{
 " Make vimrcs open folded
