@@ -68,7 +68,6 @@ Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-packer'
 Plug 'hashivim/vim-consul'
 Plug 'hashivim/vim-vaultproject'
-Plug 'OrangeT/vim-csharp'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'digitaltoad/vim-pug'
@@ -94,9 +93,7 @@ if has('nvim')
 else
 	Plug 'Valloric/YouCompleteMe'
 	Plug 'scrooloose/syntastic'
-endif 
-
-Plug 'OmniSharp/omnisharp-vim'
+endif
 
 " Search
 Plug 'haya14busa/incsearch.vim'
@@ -365,56 +362,6 @@ let g:localvimrc_persistent=1
 " }}}
 " ##### editorconfig {{{
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-" }}}
-" ##### OmniSharp {{{
-let g:OmniSharp_timeout = 1
-
-let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
-
-augroup omnisharp_commands
-    autocmd!
-
-    " Builds can also run asynchronously with vim-dispatch installed
-    autocmd FileType cs nnoremap <leader>b :wa!<cr>:OmniSharpBuildAsync<cr>
-
-    " Automatic syntax check on events (TextChanged requires Vim 7.4)
-    autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
-
-    " Automatically add new cs files to the nearest project on save
-    autocmd BufWritePost *.cs call OmniSharp#AddToProject()
-
-    " Show type information automatically when the cursor stops moving
-    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
-
-    " The following commands are contextual, based on the current cursor position.
-    autocmd FileType cs nnoremap <localleader>gd :OmniSharpGotoDefinition<cr>
-    autocmd FileType cs nnoremap <localleader>fi :OmniSharpFindImplementations<cr>
-    autocmd FileType cs nnoremap <localleader>ft :OmniSharpFindType<cr>
-    autocmd FileType cs nnoremap <localleader>fs :OmniSharpFindSymbol<cr>
-    autocmd FileType cs nnoremap <localleader>fu :OmniSharpFindUsages<cr>
-
-    " Finds members in the current buffer
-    autocmd FileType cs nnoremap <localleader>fm :OmniSharpFindMembers<cr>
-
-    " Cursor can be anywhere on the line containing an issue
-    autocmd FileType cs nnoremap <localleader>x  :OmniSharpFixIssue<cr>
-    autocmd FileType cs nnoremap <localleader>fx :OmniSharpFixUsings<cr>
-    autocmd FileType cs nnoremap <localleader>tt :OmniSharpTypeLookup<cr>
-    autocmd FileType cs nnoremap <localleader>dc :OmniSharpDocumentation<cr>
-augroup END
-
-" Force OmniSharp to reload the solution. Useful when switching branches etc.
-nnoremap <leader>rl :OmniSharpReloadSolution<cr>
-" nnoremap <leader>cf :OmniSharpCodeFormat<cr>
-" Load the current .cs file to the nearest project
-nnoremap <leader>tp :OmniSharpAddToProject<cr>
-
-" (Experimental - uses vim-dispatch or vimproc plugin) - Start the omnisharp server for the current solution
-nnoremap <leader>ss :OmniSharpStartServer<cr>
-nnoremap <leader>sp :OmniSharpStopServer<cr>
-
-" Add syntax highlighting for types and interfaces
-nnoremap <leader>th :OmniSharpHighlightTypes<cr>
 " }}}
 " ##### Syntastic {{{
 let g:syntastic_enable_highlighting = 0
