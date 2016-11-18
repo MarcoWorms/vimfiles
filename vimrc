@@ -146,8 +146,8 @@ set scrolloff=3
 
 " Set the terminal's title
 set title
-" No beeping.
-set visualbell
+" Don't blink screen on stuff
+set novb
 
 " Don't make a backup before overwriting a file.
 set nobackup
@@ -187,7 +187,6 @@ set fillchars+=vert:│
 
 " Sets the colorscheme for terminal sessions too.
 colorscheme dracula
-autocmd BufEnter * colorscheme dracula
 
 " Leader = ,
 let mapleader = ","
