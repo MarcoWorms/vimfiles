@@ -204,6 +204,10 @@ let g:omni_sql_no_default_maps = 1
 
 " Completion
 set completeopt=menu,noselect
+
+" Live replacement
+set inccommand=split
+
 " }}}
 " ##### General mappings  {{{
 " ##### Tabs {{{
