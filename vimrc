@@ -33,6 +33,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-abolish'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-eunuch'
+Plug 'alvan/vim-closetag'
 Plug 'edkolev/tmuxline.vim'
 
 " Support
