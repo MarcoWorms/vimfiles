@@ -141,7 +141,7 @@ set incsearch
 set nohlsearch
 
 " Turn off line wrapping.
-set nowrap    
+set nowrap
 " Show 3 lines of context around the cursor.
 set scrolloff=3
 
