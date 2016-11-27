@@ -1,6 +1,7 @@
 " .vimrc
-" Author: Jonathan Lima <greenboxal@gmail.com>
-" Source: http://github.com/greenboxal/vimfiles
+" Forked from: Jonathan Lima <greenboxal@gmail.com>
+" Adapted by: Derek Stavis  <derekstavis@me.com>
+" Source  http://github.com/derekstavis/vimfiles
 
  " ##### Fix vim with fish  {{{
 
