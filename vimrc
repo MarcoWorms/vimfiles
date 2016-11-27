@@ -493,6 +493,13 @@ autocmd FileType elixir set tabstop=2
 " }}}
 " ##### Go {{{
 autocmd FileType go set foldmethod=syntax
+
+autocmd FileType go let g:go_highlight_functions = 1
+autocmd FileType go let g:go_highlight_methods = 1
+autocmd FileType go let g:go_highlight_fields = 1
+autocmd FileType go let g:go_highlight_types = 1
+autocmd FileType go let g:go_highlight_operators = 1
+autocmd FileType go let g:go_highlight_build_constraints = 1
 " }}}
 " ##### Rocker {{{
 autocmd BufRead,BufNewFile Rockerfile* set filetype=dockerfile
