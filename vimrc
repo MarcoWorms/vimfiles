@@ -207,7 +207,9 @@ let g:omni_sql_no_default_maps = 1
 set completeopt=menu,noselect
 
 " Live replacement
-set inccommand=split
+if exists("&inccomand")
+  set inccommand=split
+endif
 
 " }}}
 " ##### General mappings  {{{
