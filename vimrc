@@ -332,7 +332,8 @@ let NERDTreeMapActivateNode='<space>'
 " }}}
 " ##### Airline  {{{
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'papercolor'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'cobalt2'
 let g:airline_section_warning = ''
 let g:airline_inactive_collapse = 0
 let g:airline#extensions#default#section_truncate_width = {
@@ -404,14 +405,11 @@ let g:neomake_javascript_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
 let g:neomake_puppet_enabled_makers = ['puppet', 'puppetlint']
 " }}}
 " ##### vim-tmuxline.vim {{{
-let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#tmuxline#enabled = 1
 let g:tmuxline_preset = {
-    \'a'       : ['#(whoami)', '#S'],
-    \'win'     : ['#I', '#W'],
-    \'cwin'    : ['#I', '#W'],
-    \'x'       : ['#{prefix_highlight}'],
-    \'z'       : ['On: #{online_status}', '#{battery_icon} #{battery_percentage}', '%R'],
-    \'options' : {'status-justify' : 'left'}}
+  \'a'    : '%d %b %Y %H:%M',
+  \'b'    : '#W',
+  \'z'    : '#h'}
 " }}}
 " }}}
 " ##### Filetype-specific  {{{
