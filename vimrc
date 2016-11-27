@@ -368,7 +368,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:toggle_list_copen_command="Copen"
 " }}}
 " ##### localvimrc {{{
-let g:localvimrc_whitelist=$HOME.'/src/github.com/pagarme/.*'
+let g:localvimrc_whitelist=$HOME.'/Documents'
 let g:localvimrc_persistent=1
 " }}}
 " ##### editorconfig {{{
