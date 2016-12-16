@@ -89,8 +89,8 @@ if has('nvim')
 	Plug 'neomake/neomake'
 	Plug 'Shougo/deoplete.nvim'
 	Plug 'carlitux/deoplete-ternjs'
-	Plug 'zchee/deoplete-go', { 'do': 'make' }
-	Plug 'awetzel/elixir.nvim'
+	Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
+	Plug 'awetzel/elixir.nvim', { 'for': 'exs' }
 	Plug 'zchee/deoplete-clang'
 else
 	Plug 'Valloric/YouCompleteMe'
