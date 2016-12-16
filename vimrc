@@ -402,6 +402,17 @@ let g:tmuxline_preset = {
   \'b'    : '#W',
   \'z'    : '#h'}
 " }}}
+" ##### Multiple cursors {{{
+let g:multi_cursor_exit_from_visual_mode = 0
+let g:multi_cursor_exit_from_insert_mode = 0
+
+function! g:Multiple_cursors_before()
+  let g:deoplete#disable_auto_complete = 1
+endfunction
+
+function! g:Multiple_cursors_after()
+  let g:deoplete#disable_auto_complete = 0
+endfunction
 " }}}
 " ##### Filetype-specific  {{{
 " ##### Ruby  {{{
