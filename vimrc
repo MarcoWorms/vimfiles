@@ -205,7 +205,7 @@ let g:omni_sql_no_default_maps = 1
 set completeopt=menu,noselect
 
 " Live replacement
-if exists("&inccomand")
+if exists("&inccommand")
   set inccommand=split
 endif
 
