@@ -123,8 +123,6 @@ set hidden
 
 " Enhanced command line completion.
 set wildmenu
-" Complete files like a shell.
-set wildmode=list:longest
 
 " Case-insensitive searching.
 set ignorecase
