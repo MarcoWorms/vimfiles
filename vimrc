@@ -389,14 +389,7 @@ let g:monster#completion#rcodetools#backend = "async_rct_complete"
 " ##### Neomake {{{
 augroup neomake_save_linter
 	autocmd!
-	autocmd BufWritePost *.js Neomake
-	autocmd BufWritePost *.py Neomake
-	autocmd BufWritePost *.rb Neomake
-	autocmd BufWritePost *.pp Neomake
-	autocmd BufWritePost *.erl Neomake
-	autocmd BufWritePost *.ex Neomake
-	autocmd BufWritePost *.exs Neomake
-	autocmd BufWritePost *.go Neomake
+	autocmd BufWritePost,BufReadPost * Neomake
 augroup end
 
 let g:neomake_javascript_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
