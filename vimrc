@@ -37,6 +37,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-eunuch'
 Plug 'alvan/vim-closetag'
 Plug 'edkolev/tmuxline.vim'
+Plug 'derekstavis/yanklight.vim'
 
 " Support
 Plug 'tpope/vim-dispatch'
