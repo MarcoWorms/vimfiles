@@ -222,8 +222,8 @@ nnoremap <leader>n :tabnext<cr>
 nnoremap <leader>p :tabprevious<cr>
 " }}}
 " ##### IDE Like {{{
-nmap <leader>1 :TagbarToggle<CR>
-nmap <leader>2 :NERDTreeToggle<CR>
+nmap <leader>1 :NERDTreeToggle<CR>
+nmap <leader>2 :TagbarToggle<CR>
 " }}}
 " ##### Line movement {{{
 " Go to start of line with H and to the end with $
