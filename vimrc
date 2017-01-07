@@ -404,6 +404,8 @@ let g:airline#extensions#tmuxline#enabled = 1
 let g:tmuxline_preset = {
   \'a'    : '%d %b %Y %H:%M',
   \'b'    : '#W',
+  \'win'  : '#I #W',
+  \'cwin' : '#I #W',
   \'z'    : '#h'}
 " }}}
 " ##### Multiple cursors {{{
