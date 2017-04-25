@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
 " "}}}
 " ##### Plugs  {{{
 " Base
+Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'teranex/jk-jumps.vim'
