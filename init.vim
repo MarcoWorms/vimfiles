@@ -31,10 +31,10 @@
   " An extensible & universal comment vim-plugin that also handles embedded filetypes 
   Plug 'tomtom/tcomment_vim'
 
-  " Vim plugin, insert or delete brackets, parens, quotes in pair
-  Plug 'jiangmiao/auto-pairs'
+  " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
+  Plug 'Raimondi/delimitMate'
 
-  " 🌠 Dark powered asynchronous completion framework for neovim
+  " Dark powered asynchronous completion framework for neovim
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
   " A tree explorer plugin for vim.
@@ -42,6 +42,12 @@
 
   " True Sublime Text style multiple selections for Vim
   Plug 'terryma/vim-multiple-cursors'
+
+  " Asynchronous linting and make framework for Neovim/Vim
+  Plug 'neomake/neomake'
+
+  " Better whitespace highlighting for Vim
+  Plug 'ntpeters/vim-better-whitespace'
 
   " Initialize plugin system
   call plug#end()
@@ -51,28 +57,34 @@
   let mapleader = ","
 
   " Easier config reload
-  nmap <leader>sv :source $MYVIMRC<cr>
-  nmap <leader>ev :vsp $MYVIMRC<cr>
+  nnoremap <leader>sv :source $MYVIMRC<cr>
+  nnoremap <leader>ev :vsp $MYVIMRC<cr>
 
 " ########### Shortcuts
   " Toggles hlsearch
-  nmap <leader>hs :set hlsearch!<cr>
+  nnoremap <leader>hs :set hlsearch!<cr>
 
-  " Remap window changing
-  nmap <c-left> <c-w>h
-  nmap <c-right> <c-w>l
-  nmap <c-up> <c-w>k
-  nmap <c-down> <c-w>j
-  nmap <c-space> :NERDTreeToggle<cr>
+  vnoremap § <ESC>
+  inoremap § <ESC>
+  nnoremap § <ESC>
+
+  " Reemap window changing
+  nnoremap <c-up> <c-w>k
+  nnoremap <c-left> <c-w>h
+  nnoremap <c-down> <c-w>j
+  nnoremap <c-right> <c-w>l
+
+  " Sidebar toggle
+  nnoremap <c-space> :NERDTreeToggle<cr>
 
   " Resize Panels with Shift
-  nmap <S-Down> <c-w>+
-  nmap <S-Up> <c-w>-
-  nmap <S-Left> <c-w><
-  nmap <S-Right> <c-w>>
+  nnoremap <S-down> <c-w>-
+  nnoremap <S-left> <c-w><
+  nnoremap <S-up> <c-w>+
+  nnoremap <S-right> <c-w>>
 
   " Folding with space
-  nmap <space> za
+  nnoremap <space> za
 
 " ########### Config
   colorscheme dracula
@@ -80,8 +92,8 @@
 
   " Config FZF
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-  nmap <C-P> :Files<cr>
-  nmap <C-F> :Ag 
+  nnoremap <C-P> :Files<cr>
+  nnoremap <C-F> :Ag 
 
   " Turn on JSX syntax for .js files
   let g:jsx_ext_required = 0
@@ -92,6 +104,8 @@
   set shiftwidth=2
   " And also expand tabs.
   set expandtab
+
+  set colorcolumn=72
 
   " Show line numbers.
   set number
@@ -115,10 +129,24 @@
   " Files open expanded
   set foldlevelstart=50
 
+  set wildmenu
+
   " Don't fuck up vim's default file browser
   let NERDTreeMapActivateNode='<space>'
 
   " Airline config
   let g:airline_powerline_fonts = 1
-  let g:airline_theme = 'luna'
+  let g:airline_theme = 'dark'
   let g:airline_section_warning = ''
+
+  " Dont override my bg :)
+  hi Normal ctermbg=none
+
+  " Make neomake work
+  augroup neomake_save_linter
+	  autocmd!
+	  autocmd BufWritePost,BufReadPost * Neomake
+  augroup end
+  let g:neomake_place_signs = 1
+  let g:neomake_javascript_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
+  let g:neomake_puppet_enabled_makers = ['puppet', 'puppetlint']
