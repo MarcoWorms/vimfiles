@@ -18,9 +18,8 @@
   " React JSX syntax highlighting and indenting for vim.
   Plug 'mxw/vim-jsx'
 
-  " FZF wrapper
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
+  " Fuzzy file, buffer, mru, tag, etc finder. http://kien.github.com/ctrlp.vim
+  Plug 'kien/ctrlp.vim'
 
   " Make the yanked region apparent!
   Plug 'machakann/vim-highlightedyank'
@@ -28,7 +27,7 @@
   " Colorschemes
   Plug 'crusoexia/vim-dracula'
 
-  " An extensible & universal comment vim-plugin that also handles embedded filetypes 
+  " An extensible & universal comment vim-plugin that also handles embedded filetypes
   Plug 'tomtom/tcomment_vim'
 
   " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
@@ -92,7 +91,8 @@
 
   " Config FZF
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-  nnoremap <C-P> :Files<cr>
+  nnoremap <C-F> :Ag 
+
   nnoremap <C-F> :Ag 
 
   " Turn on JSX syntax for .js files
@@ -131,6 +131,8 @@
 
   set wildmenu
 
+  set clipboard=unnamedplus
+
   " Don't fuck up vim's default file browser
   let NERDTreeMapActivateNode='<space>'
 
@@ -138,6 +140,7 @@
   let g:airline_powerline_fonts = 1
   let g:airline_theme = 'dark'
   let g:airline_section_warning = ''
+  let g:airline#extensions#tabline#enabled = 1
 
   " Dont override my bg :)
   hi Normal ctermbg=none
