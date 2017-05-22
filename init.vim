@@ -18,8 +18,9 @@
   " React JSX syntax highlighting and indenting for vim.
   Plug 'mxw/vim-jsx'
 
-  " Fuzzy file, buffer, mru, tag, etc finder. http://kien.github.com/ctrlp.vim
-  Plug 'kien/ctrlp.vim'
+  " Install FZF
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
 
   " Make the yanked region apparent!
   Plug 'machakann/vim-highlightedyank'
@@ -89,11 +90,12 @@
   colorscheme dracula
   highlight MatchParen ctermfg=white
 
+  set mouse=a
+
   " Config FZF
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-  nnoremap <C-F> :Ag 
-
-  nnoremap <C-F> :Ag 
+  nnoremap <C-f> :Ag 
+  nnoremap <C-p> :FZF<cr>
 
   " Turn on JSX syntax for .js files
   let g:jsx_ext_required = 0
@@ -135,6 +137,7 @@
 
   " Don't fuck up vim's default file browser
   let NERDTreeMapActivateNode='<space>'
+  let g:NERDTreeHijackNetrw = 0
 
   " Airline config
   let g:airline_powerline_fonts = 1
