@@ -49,6 +49,33 @@
   " Better whitespace highlighting for Vim
   Plug 'ntpeters/vim-better-whitespace'
 
+  Plug 'autozimu/LanguageClient-neovim', {
+  \ 'branch': 'next',
+  \ 'do': 'bash install.sh',
+  \ }
+
+  set hidden
+
+  set completefunc=LanguageClient#complete
+  set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+
+  let g:LanguageClient_serverCommands = {
+      \ 'javascript': ['lsp-tsserver'],
+      \ 'javascript.jsx': ['lsp-tsserver'],
+      \ 'typescript': ['typescript-language-server', '--stdio'],
+      \ 'typescript.tsx': ['typescript-language-server', '--stdio'],
+      \ }
+
+  Plug 'HerringtonDarkholme/yats.vim'
+
+" Automatically start language servers.
+
+
+nnoremap <silent> <leader>hv :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <leader>gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <leader>rn :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <leader>ca :call LanguageClient#textDocument_codeAction()<CR>
+nnoremap <silent> <leader>ex :call LanguageClient#explainErrorAtPoint()<CR>
   " Initialize plugin system
   call plug#end()
 
@@ -107,7 +134,7 @@
   " And also expand tabs.
   set expandtab
 
-  set colorcolumn=72
+  set colorcolumn=80
 
   " Show line numbers.
   set number
